@@ -1,0 +1,48 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme {
+  --color-bg-dark: #090908;
+  --color-off-white: #f0ece3;
+  --color-rust: #bf4627;
+  --color-muted-grey: #69635c;
+  --color-dark-ink: #141412;
+  --color-cream: #e5dfd4;
+
+  --font-bebas: var(--font-bebas);
+  --font-cormorant: var(--font-cormorant);
+  --font-dm-serif: var(--font-dm-serif);
+  --font-space-mono: var(--font-space-mono);
+
+  --animate-marquee: marquee 20s linear infinite;
+
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+}
+
+@layer base {
+  body {
+    background-color: var(--color-bg-dark);
+    color: var(--color-off-white);
+    font-family: var(--font-space-mono);
+    overflow-x: hidden;
+  }
+
+  /* Hide default cursor on devices with a fine pointer */
+  @media (pointer: fine) {
+    body, a, button {
+      cursor: none;
+    }
+  }
+
+  /* Hide scrollbar for marquee */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
