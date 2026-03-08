@@ -37,12 +37,20 @@
     }
   }
 
-  /* Hide scrollbar for marquee */
   .no-scrollbar::-webkit-scrollbar {
     display: none;
   }
   .no-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
+  }
+
+  .light {
+    --color-bg-dark: #f0ece3;
+    --color-off-white: #090908;
+    --color-rust: #bf4627;
+    --color-muted-grey: #8a837c;
+    --color-dark-ink: #f0ece3;
+    --color-cream: #141412;
   }
 }

@@ -5,6 +5,7 @@ import CustomCursor from '@/components/CustomCursor';
 import FilmGrain from '@/components/FilmGrain';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import { ThemeProvider } from '@/components/ThemeProvider';
 
 const bebas = Bebas_Neue({ weight: '400', subsets: ['latin'], variable: '--font-bebas' });
 const cormorant = Cormorant_Garamond({ weight: ['400', '600', '700'], style: ['normal', 'italic'], subsets: ['latin'], variable: '--font-cormorant' });
@@ -18,15 +19,17 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${bebas.variable} ${cormorant.variable} ${dmSerif.variable} ${spaceMono.variable} scroll-smooth`}>
-      <body suppressHydrationWarning className="antialiased min-h-screen flex flex-col">
-        <FilmGrain />
-        <CustomCursor />
-        <Navbar />
-        <main className="flex-grow">
-          {children}
-        </main>
-        <Footer />
+    <html lang="en" suppressHydrationWarning className={`${bebas.variable} ${cormorant.variable} ${dmSerif.variable} ${spaceMono.variable} scroll-smooth`}>
+      <body className="antialiased min-h-screen flex flex-col bg-bg-dark text-off-white transition-colors duration-300">
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <FilmGrain />
+          <CustomCursor />
+          <Navbar />
+          <main id="main-content" className="flex-grow">
+            {children}
+          </main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -1,7 +1,11 @@
 import Link from 'next/link';
 import ScrollReveal from '@/components/ScrollReveal';
+import { fetchSubstackFeed } from '@/lib/substack';
+import { span } from 'motion/react-client';
 
-export default function Home() {
+export default async function Home() {
+  const stories = await fetchSubstackFeed();
+
   return (
     <div className="w-full">
       {/* Hero Section */}
@@ -11,10 +15,10 @@ export default function Home() {
           <div className="flex flex-col items-start">
             <ScrollReveal>
               <span className="font-space-mono text-xs uppercase tracking-[0.2em] text-muted-grey mb-6 block">
-                Builder · Fiction Writer · Operator
+                Builder · Storyteller · Operator
               </span>
             </ScrollReveal>
-            
+
             <ScrollReveal delay={0.1}>
               <h1 className="font-bebas text-8xl md:text-[10rem] leading-[0.85] tracking-tight mb-2">
                 ONIMI<span className="text-rust">SON</span>
@@ -32,10 +36,10 @@ export default function Home() {
             </ScrollReveal>
 
             <ScrollReveal delay={0.4} className="flex flex-wrap gap-4">
-              <Link href="/work" className="bg-rust text-bg-dark font-space-mono text-sm uppercase tracking-widest px-8 py-4 hover:bg-off-white transition-colors duration-300">
+              <Link href="/work" className="bg-rust text-bg-dark font-space-mono text-sm uppercase tracking-widest px-8 py-4 hover:bg-off-white transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-rust focus-visible:ring-offset-2 focus-visible:ring-offset-bg-dark focus-visible:outline-none">
                 See the Work
               </Link>
-              <Link href="#contact" className="border border-rust text-rust font-space-mono text-sm uppercase tracking-widest px-8 py-4 hover:bg-rust hover:text-bg-dark transition-colors duration-300">
+              <Link href="#contact" className="border border-rust text-rust font-space-mono text-sm uppercase tracking-widest px-8 py-4 hover:bg-rust hover:text-bg-dark transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-rust focus-visible:ring-offset-2 focus-visible:ring-offset-bg-dark focus-visible:outline-none">
                 Let&apos;s Talk
               </Link>
             </ScrollReveal>
@@ -46,7 +50,7 @@ export default function Home() {
             <div className="absolute inset-0 flex items-center justify-center opacity-10 pointer-events-none">
               <span className="font-bebas text-[15rem] -rotate-90 tracking-tighter select-none">ONIMISON</span>
             </div>
-            
+
             {/* Geometric Shapes */}
             <ScrollReveal delay={0.5} className="absolute top-1/4 left-1/4 w-32 h-48 bg-rust mix-blend-screen"></ScrollReveal>
             <ScrollReveal delay={0.6} className="absolute top-1/3 right-1/4 w-40 h-40 border-2 border-off-white/30"></ScrollReveal>
@@ -57,7 +61,7 @@ export default function Home() {
 
         {/* Bottom Stat Strip */}
         <div className="absolute bottom-0 left-0 w-full border-t border-muted-grey/20 bg-bg-dark/80 backdrop-blur-sm z-20">
-          <div className="flex flex-wrap justify-between items-center px-6 md:px-12 py-4 font-space-mono text-[10px] md:text-xs uppercase tracking-widest text-muted-grey">
+          <div className="flex flex-wrap justify-between items-center px-6 md:px-12 py-4 font-space-mono text-xs md:text-sm uppercase tracking-widest text-muted-grey">
             <span>5+ Years Building</span>
             <span className="hidden sm:inline">/</span>
             <span>10.8.8 Co-founder</span>
@@ -78,9 +82,7 @@ export default function Home() {
               <span>✦</span>
               <span>AI & AUTOMATION</span>
               <span>✦</span>
-              <span>FICTION WRITING</span>
-              <span>✦</span>
-              <span>BRAND BUILDING</span>
+              <span>STORYTELLING</span>
               <span>✦</span>
               <span>10.8.8 AFRICA</span>
               <span>✦</span>
@@ -96,7 +98,7 @@ export default function Home() {
         <ScrollReveal>
           <span className="font-space-mono text-xs uppercase tracking-widest text-muted-grey mb-12 block">01 — About</span>
         </ScrollReveal>
-        
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           <div className="space-y-8">
             <ScrollReveal>
@@ -104,7 +106,7 @@ export default function Home() {
                 No clean title. Just range.
               </h2>
             </ScrollReveal>
-            
+
             <ScrollReveal delay={0.1}>
               <div className="font-space-mono text-sm leading-relaxed text-off-white/80 space-y-6">
                 <p>
@@ -122,8 +124,9 @@ export default function Home() {
 
           <div className="relative pl-8 border-l border-rust/30 space-y-12">
             {[
-              { title: "NIGCOMSAT + Freelance", date: "2024–Present", desc: "Building digital infrastructure and systems." },
-              { title: "Crypto/Degen Era", date: "2021–2023", desc: "Made real money. Lost it. Learned the mechanics of hype and value." },
+              { title: "NIGCOMSAT + Freelance", date: "2024–Present", desc: "Creating contents for social media and playing around with AI systems." },
+              { title: "Crypto/Degen Era", date: "2022–2024", desc: "Made real money. Lost it. Learned the mechanics of hype and value." },
+              { title: "Frontend Developer at Paritie Innovation Hub", date: "2023–2024", desc: "Built functional frontend for in house projects and i taught JavaScript to a bunch of interns." },
               { title: "Purple University Founder", date: "2020–2022", desc: "Led community, content, and education initiatives." },
               { title: "10.8.8 Africa Co-founder", date: "2021–Present", desc: "Built the brand, the first site, and the structure." }
             ].map((item, i) => (
@@ -138,92 +141,60 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Services Section */}
-      <section id="services" className="bg-cream text-dark-ink py-32 px-6 md:px-12">
+      {/* Fiction Section */}
+      <section id="fiction" className="bg-cream text-dark-ink py-32 px-6 md:px-12">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
-            <ScrollReveal>
-              <h2 className="font-bebas text-7xl md:text-8xl leading-[0.85] tracking-tight">
-                I BUILD<br />THINGS THAT<br /><span className="text-rust">WORK.</span>
-              </h2>
-            </ScrollReveal>
-            <ScrollReveal delay={0.1} className="flex items-end">
-              <p className="font-space-mono text-sm leading-relaxed max-w-md">
-                No agency overhead. No guesswork. I bring the full range — frontend that looks like someone cared, automations that actually run, and content strategy backed by experience building real audiences.
-              </p>
-            </ScrollReveal>
-          </div>
+          <ScrollReveal>
+            <span className="font-space-mono text-xs uppercase tracking-widest text-rust mb-12 block">03 — Fiction</span>
+          </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-            {[
-              { icon: "■", title: "Website Design & Dev", desc: "Custom, performant sites built with Next.js and Tailwind. No generic templates." },
-              { icon: "▲", title: "Automation & AI Systems", desc: "Workflows that save hours. Make, Airtable, Zapier, and custom integrations." },
-              { icon: "●", title: "Content & Social Strategy", desc: "Audience building that doesn&apos;t feel like marketing. Honest, effective copy." }
-            ].map((service, i) => (
+          <ScrollReveal delay={0.1}>
+            <h2 className="font-cormorant italic text-6xl md:text-8xl leading-none mb-16 text-dark-ink">
+              Stories that don&apos;t wrap up neatly.
+            </h2>
+          </ScrollReveal>
+
+          <div className="border-t border-dark-ink/20">
+            {stories.slice(0, 4).map((story, i) => (
               <ScrollReveal key={i} delay={i * 0.1}>
-                <div className="group border border-dark-ink/10 p-8 hover:border-rust transition-colors duration-300 relative h-full flex flex-col">
-                  <div className="absolute left-0 top-0 bottom-0 w-1 bg-rust scale-y-0 group-hover:scale-y-100 transition-transform origin-top duration-300"></div>
-                  <span className="text-rust text-2xl mb-6 block">{service.icon}</span>
-                  <h3 className="font-bebas text-3xl tracking-wide mb-4">{service.title}</h3>
-                  <p className="font-space-mono text-xs leading-relaxed text-dark-ink/70 mb-8 flex-grow">
-                    {service.desc}
-                  </p>
-                  <Link href="#contact" className="font-space-mono text-xs uppercase tracking-widest text-rust group-hover:text-dark-ink transition-colors mt-auto inline-flex items-center">
-                    Start a project <span className="ml-2">→</span>
-                  </Link>
-                </div>
+                <Link href={story.link} target="_blank" rel="noopener noreferrer" className="group flex flex-col md:flex-row items-start md:items-center justify-between py-12 border-b border-dark-ink/20 hover:bg-dark-ink/5 transition-colors px-4 -mx-4 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-rust focus-visible:outline-none rounded-sm">
+                  <div className="flex items-center gap-8 mb-4 md:mb-0 w-full md:w-auto">
+                    <span className="font-space-mono text-xs text-dark-ink/40 group-hover:text-rust transition-colors w-8">
+                      0{i + 1}
+                    </span>
+                    <div className="flex flex-col gap-2">
+                      <span className="font-space-mono text-[10px] uppercase tracking-widest text-rust">
+                        {new Date(story.pubDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+                      </span>
+                      <h3 className="font-cormorant italic text-3xl md:text-4xl text-dark-ink group-hover:text-rust transition-colors line-clamp-2">
+                        {story.title}
+                      </h3>
+                    </div>
+                  </div>
+
+                  <div className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-12 w-full md:w-auto pl-16 md:pl-0">
+                    <div
+                      className="font-space-mono text-xs text-dark-ink/60 max-w-xs line-clamp-3"
+                      dangerouslySetInnerHTML={{ __html: story.description }}
+                    />
+                    <span className="font-space-mono text-[10px] uppercase tracking-widest text-dark-ink/50 border border-dark-ink/20 px-3 py-1 rounded-full whitespace-nowrap group-hover:border-rust group-hover:text-rust transition-colors">
+                      Substack
+                    </span>
+                  </div>
+                </Link>
               </ScrollReveal>
             ))}
           </div>
 
-          <ScrollReveal delay={0.3}>
-            <div className="border-t border-dark-ink/10 pt-8 flex flex-wrap gap-6 font-space-mono text-xs uppercase tracking-widest text-dark-ink/50">
-              <span>Next.js</span>
-              <span>Make</span>
-              <span>Airtable</span>
-              <span>Zapier</span>
-              <span>Resend</span>
-              <span>Tally</span>
-              <span>Figma</span>
-              <span>n8n</span>
-            </div>
+          <ScrollReveal delay={0.4} className="mt-20">
+            <Link href="/fiction" className="inline-flex items-center font-space-mono text-xs uppercase tracking-widest text-rust hover:text-dark-ink transition-colors focus-visible:ring-2 focus-visible:ring-rust focus-visible:outline-none p-1 rounded-sm">
+              View All Fiction <span className="ml-2">→</span>
+            </Link>
           </ScrollReveal>
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section id="contact" className="py-40 px-6 md:px-12 text-center max-w-4xl mx-auto">
-        <ScrollReveal>
-          <span className="font-space-mono text-xs uppercase tracking-widest text-muted-grey mb-8 block">05 — Contact</span>
-        </ScrollReveal>
-        
-        <ScrollReveal delay={0.1}>
-          <h2 className="font-bebas text-7xl md:text-9xl leading-[0.85] tracking-tight mb-6">
-            LET&apos;S<br />BUILD<br />SOMETHING.
-          </h2>
-        </ScrollReveal>
-        
-        <ScrollReveal delay={0.2}>
-          <p className="font-cormorant italic text-2xl text-muted-grey mb-12">
-            Whether it&apos;s code, copy, or systems.
-          </p>
-        </ScrollReveal>
-        
-        <ScrollReveal delay={0.3}>
-          <a href="mailto:HELLO@ONIMISON.COM" className="font-space-mono text-xl md:text-3xl text-rust border-b-2 border-rust pb-2 hover:text-off-white hover:border-off-white transition-colors duration-300 inline-block mb-20">
-            HELLO@ONIMISON.COM
-          </a>
-        </ScrollReveal>
-        
-        <ScrollReveal delay={0.4}>
-          <div className="flex flex-wrap justify-center gap-8 font-space-mono text-sm uppercase tracking-widest">
-            <a href="#" className="hover:text-rust transition-colors">Substack</a>
-            <a href="#" className="hover:text-rust transition-colors">Twitter/X</a>
-            <a href="#" className="hover:text-rust transition-colors">LinkedIn</a>
-            <a href="#" className="hover:text-rust transition-colors">Instagram</a>
-          </div>
-        </ScrollReveal>
-      </section>
+
     </div>
   );
 }
