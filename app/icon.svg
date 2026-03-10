@@ -1,0 +1,6 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="256" height="256" rx="64" fill="#090908" />
+  <text x="50%" y="60%" font-family="sans-serif, system-ui" font-weight="900" font-size="200" fill="#f0ece3" text-anchor="middle" dominant-baseline="middle" letter-spacing="-10">
+    O<tspan fill="#bf4627">.</tspan>
+  </text>
+</svg>
