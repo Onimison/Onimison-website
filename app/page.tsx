@@ -110,7 +110,7 @@ export default async function Home() {
             <ScrollReveal delay={0.1}>
               <div className="font-space-mono text-sm leading-relaxed text-off-white/80 space-y-6">
                 <p>
-                  It started with Photoshop. Then it bled into frontend development because I wanted the things I designed to actually exist. Then came fiction, because code couldn&apos;t hold everything I needed to say.
+                  It started with Photoshop. Then it bled into frontend development because I wanted the things I designed to actually exist. Then came storytelling, because code couldn&apos;t hold everything I needed to say.
                 </p>
                 <p>
                   I co-founded 10.8.8 Africa, built the brand, and led Purple University. I spent years in the crypto trenches — made real money, lost it, learned how systems actually work when the hype dies.
@@ -141,11 +141,11 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* Fiction Section */}
-      <section id="fiction" className="bg-cream text-dark-ink py-32 px-6 md:px-12">
+      {/* Storytelling Section */}
+      <section id="storytelling" className="bg-cream text-dark-ink py-32 px-6 md:px-12">
         <div className="max-w-7xl mx-auto">
           <ScrollReveal>
-            <span className="font-space-mono text-xs uppercase tracking-widest text-rust mb-12 block">03 — Fiction</span>
+            <span className="font-space-mono text-xs uppercase tracking-widest text-rust mb-12 block">03 — Storytelling</span>
           </ScrollReveal>
 
           <ScrollReveal delay={0.1}>
@@ -187,8 +187,8 @@ export default async function Home() {
           </div>
 
           <ScrollReveal delay={0.4} className="mt-20">
-            <Link href="/fiction" className="inline-flex items-center font-space-mono text-xs uppercase tracking-widest text-rust hover:text-dark-ink transition-colors focus-visible:ring-2 focus-visible:ring-rust focus-visible:outline-none p-1 rounded-sm">
-              View All Fiction <span className="ml-2">→</span>
+            <Link href="/storytelling" className="inline-flex items-center font-space-mono text-xs uppercase tracking-widest text-rust hover:text-dark-ink transition-colors focus-visible:ring-2 focus-visible:ring-rust focus-visible:outline-none p-1 rounded-sm">
+              View All Stories <span className="ml-2">→</span>
             </Link>
           </ScrollReveal>
         </div>

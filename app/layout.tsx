@@ -13,7 +13,7 @@ const dmSerif = DM_Serif_Display({ weight: '400', style: ['normal', 'italic'], s
 const spaceMono = Space_Mono({ weight: ['400', '700'], style: ['normal', 'italic'], subsets: ['latin'], variable: '--font-space-mono' });
 
 export const metadata: Metadata = {
-  title: 'Onimison | Builder · Fiction Writer · Operator',
+  title: 'Onimison | Builder · Storytelling · Operator',
   description: 'Designer turned dev. Dev turned writer. Writer turned operator. No clean title.',
 };
 

@@ -2,7 +2,7 @@ import Link from 'next/link';
 import ScrollReveal from '@/components/ScrollReveal';
 import { fetchSubstackFeed } from '@/lib/substack';
 
-export default async function Fiction() {
+export default async function Storytelling() {
   const stories = await fetchSubstackFeed();
 
   return (
@@ -10,7 +10,7 @@ export default async function Fiction() {
       {/* Page Hero */}
       <section className="pt-40 pb-20 px-6 md:px-12 max-w-7xl mx-auto">
         <ScrollReveal>
-          <span className="font-space-mono text-xs uppercase tracking-widest text-muted-grey mb-8 block">03 — Fiction</span>
+          <span className="font-space-mono text-xs uppercase tracking-widest text-muted-grey mb-8 block">03 — Storytelling</span>
         </ScrollReveal>
 
         <ScrollReveal delay={0.1}>
@@ -22,7 +22,7 @@ export default async function Fiction() {
 
         <ScrollReveal delay={0.2}>
           <p className="font-space-mono text-sm leading-relaxed text-off-white/70 max-w-lg">
-            Short fiction on Substack. Honest, unfinished, resistant to neat conclusions.
+            Short stories on Substack. Honest, unfinished, resistant to neat conclusions.
           </p>
         </ScrollReveal>
       </section>

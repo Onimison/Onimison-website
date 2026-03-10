@@ -101,8 +101,8 @@ export default function Work() {
           </ScrollReveal>
 
           <ScrollReveal delay={0.2}>
-            <Link href="/fiction" className="border border-bg-dark text-bg-dark font-space-mono text-sm uppercase tracking-widest px-8 py-4 hover:bg-bg-dark hover:text-rust transition-colors duration-300 whitespace-nowrap focus-visible:ring-2 focus-visible:ring-bg-dark focus-visible:ring-offset-2 focus-visible:ring-offset-rust focus-visible:outline-none">
-              Read the Fiction →
+            <Link href="/storytelling" className="border border-bg-dark text-bg-dark font-space-mono text-sm uppercase tracking-widest px-8 py-4 hover:bg-bg-dark hover:text-rust transition-colors duration-300 whitespace-nowrap focus-visible:ring-2 focus-visible:ring-bg-dark focus-visible:ring-offset-2 focus-visible:ring-offset-rust focus-visible:outline-none">
+              Read the Stories →
             </Link>
           </ScrollReveal>
         </div>
