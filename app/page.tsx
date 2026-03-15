@@ -1,10 +1,10 @@
 import Link from 'next/link';
 import ScrollReveal from '@/components/ScrollReveal';
-import { fetchSubstackFeed } from '@/lib/substack';
+import { getPosts } from '@/lib/markdown';
 import { span } from 'motion/react-client';
 
 export default async function Home() {
-  const stories = await fetchSubstackFeed();
+  const blogPosts = getPosts('blog');
 
   return (
     <div className="w-full">
@@ -141,33 +141,33 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* Storytelling Section */}
-      <section id="storytelling" className="bg-cream text-dark-ink py-32 px-6 md:px-12">
+      {/* Blog Section */}
+      <section id="blog" className="bg-cream text-dark-ink py-32 px-6 md:px-12">
         <div className="max-w-7xl mx-auto">
           <ScrollReveal>
-            <span className="font-space-mono text-xs uppercase tracking-widest text-rust mb-12 block">03 — Storytelling</span>
+            <span className="font-space-mono text-xs uppercase tracking-widest text-rust mb-12 block">03 — Blog</span>
           </ScrollReveal>
 
           <ScrollReveal delay={0.1}>
             <h2 className="font-cormorant italic text-6xl md:text-8xl leading-none mb-16 text-dark-ink">
-              Stories that don&apos;t wrap up neatly.
+              Notes from the workshop.
             </h2>
           </ScrollReveal>
 
           <div className="border-t border-dark-ink/20">
-            {stories.slice(0, 4).map((story, i) => (
+            {blogPosts.slice(0, 4).map((post, i) => (
               <ScrollReveal key={i} delay={i * 0.1}>
-                <Link href={story.link} target="_blank" rel="noopener noreferrer" className="group flex flex-col md:flex-row items-start md:items-center justify-between py-12 border-b border-dark-ink/20 hover:bg-dark-ink/5 transition-colors px-4 -mx-4 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-rust focus-visible:outline-none rounded-sm">
+                <Link href={`/blog/${post.slug}`} className="group flex flex-col md:flex-row items-start md:items-center justify-between py-12 border-b border-dark-ink/20 hover:bg-dark-ink/5 transition-colors px-4 -mx-4 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-rust focus-visible:outline-none rounded-sm">
                   <div className="flex items-center gap-8 mb-4 md:mb-0 w-full md:w-auto">
                     <span className="font-space-mono text-xs text-dark-ink/40 group-hover:text-rust transition-colors w-8">
                       0{i + 1}
                     </span>
                     <div className="flex flex-col gap-2">
                       <span className="font-space-mono text-[10px] uppercase tracking-widest text-rust">
-                        {new Date(story.pubDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+                        {new Date(post.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
                       </span>
                       <h3 className="font-cormorant italic text-3xl md:text-4xl text-dark-ink group-hover:text-rust transition-colors line-clamp-2">
-                        {story.title}
+                        {post.title}
                       </h3>
                     </div>
                   </div>
@@ -175,11 +175,9 @@ export default async function Home() {
                   <div className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-12 w-full md:w-auto pl-16 md:pl-0">
                     <div
                       className="font-space-mono text-xs text-dark-ink/60 max-w-xs line-clamp-3"
-                      dangerouslySetInnerHTML={{ __html: story.description }}
-                    />
-                    <span className="font-space-mono text-[10px] uppercase tracking-widest text-dark-ink/50 border border-dark-ink/20 px-3 py-1 rounded-full whitespace-nowrap group-hover:border-rust group-hover:text-rust transition-colors">
-                      Substack
-                    </span>
+                    >
+                      {post.description}
+                    </div>
                   </div>
                 </Link>
               </ScrollReveal>
@@ -187,8 +185,8 @@ export default async function Home() {
           </div>
 
           <ScrollReveal delay={0.4} className="mt-20">
-            <Link href="/storytelling" className="inline-flex items-center font-space-mono text-xs uppercase tracking-widest text-rust hover:text-dark-ink transition-colors focus-visible:ring-2 focus-visible:ring-rust focus-visible:outline-none p-1 rounded-sm">
-              View All Stories <span className="ml-2">→</span>
+            <Link href="/blog" className="inline-flex items-center font-space-mono text-xs uppercase tracking-widest text-rust hover:text-dark-ink transition-colors focus-visible:ring-2 focus-visible:ring-rust focus-visible:outline-none p-1 rounded-sm">
+              View All Notes <span className="ml-2">→</span>
             </Link>
           </ScrollReveal>
         </div>

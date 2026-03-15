@@ -40,6 +40,7 @@ export default function Navbar() {
     { name: 'About', href: '/#about' },
     { name: 'Work', href: '/work' },
     { name: 'Storytelling', href: '/storytelling' },
+    { name: 'Blog', href: '/blog' },
     { name: 'Services', href: '/#services' },
     { name: 'Contact', href: '/#contact' },
   ];

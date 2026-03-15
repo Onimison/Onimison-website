@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@plugin "@tailwindcss/typography";
 
 @theme {
   --color-bg-dark: #090908;
@@ -17,8 +18,13 @@
   --animate-marquee: marquee 20s linear infinite;
 
   @keyframes marquee {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+    0% {
+      transform: translateX(0);
+    }
+
+    100% {
+      transform: translateX(-50%);
+    }
   }
 }
 
@@ -32,7 +38,10 @@
 
   /* Hide default cursor on devices with a fine pointer */
   @media (pointer: fine) {
-    body, a, button {
+
+    body,
+    a,
+    button {
       cursor: none;
     }
   }
@@ -40,6 +49,7 @@
   .no-scrollbar::-webkit-scrollbar {
     display: none;
   }
+
   .no-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
