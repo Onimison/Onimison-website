@@ -1,6 +1,7 @@
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
 import { getPosts } from "@/lib/markdown";
+import ContactForm from "@/components/ContactForm";
 
 export default async function Home() {
   const blogPosts = getPosts("blog");
@@ -14,29 +15,27 @@ export default async function Home() {
           <div className="flex flex-col items-start">
             <ScrollReveal>
               <span className="font-space-mono text-xs uppercase tracking-[0.2em] text-muted-grey mb-6 block">
-                Builder · Storyteller · Operator
+                Fullstack Developer · AI Systems Builder
               </span>
             </ScrollReveal>
 
-            <ScrollReveal delay={0.1}>
+            <ScrollReveal>
               <h1 className="font-bebas text-8xl md:text-[10rem] leading-[0.85] tracking-tight mb-2">
                 ONIMI<span className="text-rust">SON</span>
               </h1>
             </ScrollReveal>
 
-            <ScrollReveal delay={0.2} className="w-full">
+            <ScrollReveal className="w-full">
               <div className="w-24 h-1 bg-rust my-8"></div>
             </ScrollReveal>
 
-            <ScrollReveal delay={0.3}>
+            <ScrollReveal delay={0.1}>
               <p className="font-cormorant italic text-2xl md:text-3xl text-off-white/90 max-w-xl leading-snug mb-10">
-                Designer turned dev. Dev turned writer. Writer turned operator.
-                No clean title — just an unusual combination of range, scars,
-                and taste.
+                I build AI systems that remove founder bottlenecks, and design web products that convert. No generic templates — just reliable infrastructure and premium execution.
               </p>
             </ScrollReveal>
 
-            <ScrollReveal delay={0.4} className="flex flex-wrap gap-4">
+            <ScrollReveal delay={0.1} className="flex flex-wrap gap-4">
               <Link
                 href="/work"
                 className="bg-rust text-bg-dark font-space-mono text-sm uppercase tracking-widest px-8 py-4 hover:bg-off-white transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-rust focus-visible:ring-offset-2 focus-visible:ring-offset-bg-dark focus-visible:outline-none"
@@ -44,10 +43,10 @@ export default async function Home() {
                 See the Work
               </Link>
               <Link
-                href="#contact"
+                href="#services"
                 className="border border-rust text-rust font-space-mono text-sm uppercase tracking-widest px-8 py-4 hover:bg-rust hover:text-bg-dark transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-rust focus-visible:ring-offset-2 focus-visible:ring-offset-bg-dark focus-visible:outline-none"
               >
-                Let&apos;s Talk
+                View Services
               </Link>
             </ScrollReveal>
           </div>
@@ -106,14 +105,61 @@ export default async function Home() {
               <span>✦</span>
               <span>AI & AUTOMATION</span>
               <span>✦</span>
-              <span>STORYTELLING</span>
+              <span>SAAS OPS SPRINTS</span>
               <span>✦</span>
-              <span>10.8.8 AFRICA</span>
+              <span>SYSTEMS ARCHITECTURE</span>
               <span>✦</span>
-              <span>CONTENT STRATEGY</span>
+              <span>CUSTOM DASHBOARDS</span>
               <span>✦</span>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section id="services" className="py-32 px-6 md:px-12 max-w-7xl mx-auto bg-bg-dark">
+        <ScrollReveal>
+          <span className="font-space-mono text-xs uppercase tracking-widest text-muted-grey mb-12 block">
+            01 — Services
+          </span>
+        </ScrollReveal>
+
+        <ScrollReveal delay={0.1}>
+          <h2 className="font-cormorant italic text-5xl md:text-6xl text-rust leading-tight mb-16 max-w-2xl">
+            Systems that buy back your time.
+          </h2>
+        </ScrollReveal>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 border-t border-muted-grey/20 pt-16">
+          <ScrollReveal delay={0.1}>
+            <div className="flex flex-col h-full">
+              <span className="font-space-mono text-xl text-off-white mb-4">Founder Bottleneck Audit</span>
+              <p className="font-space-mono text-sm text-muted-grey leading-relaxed mb-8 flex-grow">
+                A deep dive into your current workflows to identify where you are losing hours to manual tasks. I map out exactly how AI and automation can replace the busywork, giving you a clear ROI-focused roadmap.
+              </p>
+              <Link href="#contact" className="font-space-mono text-xs uppercase tracking-widest text-rust hover:text-off-white transition-colors">Book an Audit →</Link>
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal delay={0.2}>
+            <div className="flex flex-col h-full">
+              <span className="font-space-mono text-xl text-off-white mb-4">SaaS Ops Sprint</span>
+              <p className="font-space-mono text-sm text-muted-grey leading-relaxed mb-8 flex-grow">
+                A 2-week intensive to build or fix the operational infrastructure of your SaaS. From automated onboarding emails to CRM integrations and error tracking, I make sure the backend runs while you sleep.
+              </p>
+              <Link href="#contact" className="font-space-mono text-xs uppercase tracking-widest text-rust hover:text-off-white transition-colors">Start a Sprint →</Link>
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal delay={0.3}>
+            <div className="flex flex-col h-full">
+              <span className="font-space-mono text-xl text-off-white mb-4">Agency Systems Intensive</span>
+              <p className="font-space-mono text-sm text-muted-grey leading-relaxed mb-8 flex-grow">
+                Stop running your agency on scattered spreadsheets. I build unified dashboards, client portals, and automated reporting pipelines so you can handle more clients without hiring more account managers.
+              </p>
+              <Link href="#contact" className="font-space-mono text-xs uppercase tracking-widest text-rust hover:text-off-white transition-colors">Upgrade your Agency →</Link>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -121,7 +167,7 @@ export default async function Home() {
       <section id="about" className="py-32 px-6 md:px-12 max-w-7xl mx-auto">
         <ScrollReveal>
           <span className="font-space-mono text-xs uppercase tracking-widest text-muted-grey mb-12 block">
-            01 — About
+            02 — About
           </span>
         </ScrollReveal>
 
@@ -257,6 +303,54 @@ export default async function Home() {
               View All Notes <span className="ml-2">→</span>
             </Link>
           </ScrollReveal>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="py-32 px-6 md:px-12 bg-bg-dark">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32">
+            {/* Left — Heading */}
+            <div className="space-y-8">
+              <ScrollReveal>
+                <span className="font-space-mono text-xs uppercase tracking-widest text-muted-grey block">
+                  04 — Contact
+                </span>
+              </ScrollReveal>
+
+              <ScrollReveal delay={0.1}>
+                <h2 className="font-cormorant italic text-5xl md:text-6xl lg:text-7xl text-rust leading-tight">
+                  Let&apos;s build something that works.
+                </h2>
+              </ScrollReveal>
+
+              <ScrollReveal delay={0.2}>
+                <p className="font-space-mono text-sm text-muted-grey leading-relaxed max-w-sm">
+                  No lengthy onboarding forms. No automated responses. Tell me
+                  what you&apos;re working on and I&apos;ll respond personally.
+                </p>
+              </ScrollReveal>
+
+              <ScrollReveal delay={0.3}>
+                <div className="space-y-3 pt-4">
+                  <p className="font-space-mono text-xs uppercase tracking-widest text-muted-grey">
+                    Or reach out directly
+                  </p>
+                  <a
+                    href="mailto:hello@onimison.xyz"
+                    className="font-space-mono text-sm text-rust hover:text-off-white transition-colors inline-block"
+                  >
+                    hello@onimison.xyz →
+                  </a>
+                </div>
+              </ScrollReveal>
+            </div>
+
+            {/* Right — Form */}
+            <ScrollReveal delay={0.2}>
+              <ContactForm />
+            </ScrollReveal>
+          </div>
         </div>
       </section>
     </div>

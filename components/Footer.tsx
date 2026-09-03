@@ -10,15 +10,15 @@ export default function Footer() {
         </span>
 
         <h2 className="font-bebas text-7xl md:text-[10rem] leading-[0.85] tracking-tight mb-8 text-bg-dark">
-          LET&apos;S<br />BUILD<br />SOMETHING.
+          READY TO<br />REMOVE THE<br />BOTTLENECKS?
         </h2>
 
         <p className="font-cormorant italic text-2xl text-bg-dark/80 mb-12">
-          Whether it&apos;s code, copy, or systems.
+          Let&apos;s map out your operations and build systems that scale.
         </p>
 
         <a href="mailto:Bashironimison@gmail.com" className="font-space-mono text-xl md:text-3xl text-bg-dark border-b-2 border-bg-dark pb-2 hover:text-off-white hover:border-off-white transition-colors duration-300 inline-block focus-visible:bg-bg-dark focus-visible:text-rust focus-visible:outline-none px-2 rounded-sm font-bold tracking-widest">
-          Bashironimison@gmail.com
+          Book a Discovery Call →
         </a>
       </div>
 
@@ -41,8 +41,9 @@ export default function Footer() {
           <div className="flex flex-col gap-6 font-space-mono text-sm">
             <h3 className="uppercase tracking-widest font-bold text-bg-dark">EXPLORE</h3>
             <div className="flex flex-col gap-4 text-bg-dark/80">
+              <Link href="/#services" className="hover:text-off-white transition-colors p-1 -m-1 focus-visible:outline-bg-dark rounded-sm">Services</Link>
               <Link href="/work" className="hover:text-off-white transition-colors p-1 -m-1 focus-visible:outline-bg-dark rounded-sm">Work</Link>
-              <Link href="/fiction" className="hover:text-off-white transition-colors p-1 -m-1 focus-visible:outline-bg-dark rounded-sm">Fiction</Link>
+              <Link href="/storytelling" className="hover:text-off-white transition-colors p-1 -m-1 focus-visible:outline-bg-dark rounded-sm">Writing</Link>
             </div>
           </div>
 

@@ -432,18 +432,12 @@ export default async function CaseStudyPage({
       </section>
 
       {/* ── Back / Forward Nav ────────────────────────────────────────────── */}
-      <div className="px-6 md:px-12 py-12 max-w-7xl mx-auto border-t border-muted-grey/20 flex justify-between items-center">
-        <Link
-          href="/work/ai-tools"
-          className="font-space-mono text-xs uppercase tracking-widest text-rust hover:text-off-white transition-colors focus-visible:ring-2 focus-visible:ring-rust focus-visible:outline-none p-1 rounded-sm"
-        >
-          ← All Projects
-        </Link>
+      <div className="px-6 md:px-12 py-12 max-w-7xl mx-auto border-t border-muted-grey/20 flex justify-start items-center">
         <Link
           href="/work"
-          className="font-space-mono text-xs uppercase tracking-widest text-muted-grey hover:text-rust transition-colors focus-visible:ring-2 focus-visible:ring-rust focus-visible:outline-none p-1 rounded-sm"
+          className="font-space-mono text-xs uppercase tracking-widest text-rust hover:text-off-white transition-colors focus-visible:ring-2 focus-visible:ring-rust focus-visible:outline-none p-1 rounded-sm"
         >
-          Back to Work →
+          ← Back to Work
         </Link>
       </div>
     </div>
