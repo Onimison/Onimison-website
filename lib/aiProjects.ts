@@ -82,8 +82,9 @@ export const aiProjects: AiProject[] = [
       "AI that rewrites your CV for every job — without inventing a single thing you haven't done.",
     category: "AI Tool",
     tools: ["Next.js", "Google Gemini", "Supabase", "TypeScript"],
-    status: "in-progress",
+    status: "live",
     year: "2026",
+    liveUrl: "https://useappliq.vercel.app/",
 
     problem: {
       heading:
